@@ -9,4 +9,4 @@ export const YOUTUBE_SEARCH_API =
 export const YOUTUBE_KEYWORD_SEARCH = 
     "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=";
 
-    // 3idiot&key=AIzaSyCssOQj-TRwaeBHPmxcxw2d8dFBrPjKwPo
+export const LIVE_CHAT_COUNT = 25;

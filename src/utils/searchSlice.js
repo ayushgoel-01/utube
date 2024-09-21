@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const searchSlice = createSlice({
     name: 'search',
     initialState: {
+        currentVideo: "",
     },
     reducers: {
         cacheResults: (state,action) =>{
@@ -10,10 +11,13 @@ const searchSlice = createSlice({
         },
         searchResults: (state,action) =>{
             state.searchedData = action.payload;
+        },
+        currentVideo: (state,action) =>{
+            state.currentVideo = action.payload;
         }
     },
 });
 
-export const {cacheResults, searchResults} = searchSlice.actions;
+export const {cacheResults, searchResults, currentVideo} = searchSlice.actions;
 
 export default searchSlice.reducer;

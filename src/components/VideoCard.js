@@ -1,12 +1,20 @@
 import React from 'react'
 import userImg from '../images/user.png'
+import { useDispatch } from 'react-redux';
+import { currentVideo } from '../utils/searchSlice';
 
 const VideoCard = ({ info }) => {
+    const dispatch = useDispatch();
+
     const { snippet, statistics } = info || {};
     const { channelTitle, title, thumbnails } = snippet || {};
 
+    const handleClick = () =>{
+        dispatch(currentVideo(info));
+    }
+
     return (
-        <div className='p-2 h-50 m-2 w-72 cursor-pointer bg-white rounded-lg shadow-md'>
+        <div onClick={() => {handleClick()}} className='p-2 h-50 m-2 w-72 cursor-pointer bg-white rounded-lg shadow-md'>
             <img className='rounded-lg w-full' alt='Thumbnail' src={thumbnails?.medium.url} />
 
             <div className='flex gap-2 mt-2'>
@@ -28,4 +36,4 @@ const VideoCard = ({ info }) => {
     )
 }
 
-export default VideoCard
+export default VideoCard;

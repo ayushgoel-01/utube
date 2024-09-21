@@ -12,6 +12,7 @@ const VideoContainer = () => {
   const searchedVideos = useSelector((store) => store.search.searchedData);
   const [videos, setVideos] = useState([]);
 
+
   useEffect(() => {
     getVideos();
   }, []);
@@ -22,6 +23,8 @@ const VideoContainer = () => {
 
     setVideos(json.items);
   };
+
+
 
   // Conditionally render either searched videos or default popular videos
   let isSearch = false;

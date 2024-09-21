@@ -69,7 +69,11 @@ const Head = () => {
             </div>
 
             <div className='col-span-10 px-14'>
-                <div className='flex'>
+
+                <form onSubmit={(e) =>{
+                    e.preventDefault();
+                }} className='flex'>
+                    
                     <input 
                         className='w-3/5 border border-gray-300 px-5 p-2 rounded-l-full' 
                         value={searchQuery}
@@ -85,7 +89,7 @@ const Head = () => {
                         <img className='w-6' src={lensIcon}></img>
 
                     </button>
-                </div>
+                </form>
 
                 {searchQuery !== "" && showSuggestions && 
                 <div className='fixed bg-white py-2 px-2 w-[35.3rem] shadow-md rounded-lg border border-gray-300'>
