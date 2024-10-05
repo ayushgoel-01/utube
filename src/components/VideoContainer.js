@@ -12,7 +12,6 @@ const VideoContainer = () => {
   const searchedVideos = useSelector((store) => store.search.searchedData);
   const [videos, setVideos] = useState([]);
 
-
   useEffect(() => {
     getVideos();
   }, []);
@@ -20,33 +19,30 @@ const VideoContainer = () => {
   const getVideos = async () => {
     const data = await fetch(YOUTUBE_VIDEO_API);
     const json = await data.json();
-
     setVideos(json.items);
   };
-
-
 
   // Conditionally render either searched videos or default popular videos
   let isSearch = false;
   let displayedVideos = videos;
-  if(searchedVideos?.length > 0){
+  if (searchedVideos?.length > 0) {
     displayedVideos = searchedVideos;
     isSearch = true;
-   }
-  else{ 
+  } else {
     displayedVideos = videos;
     isSearch = false;
-
-  };
+  }
 
   return (
-    <div className='flex flex-wrap'>
+    <div className='flex flex-wrap justify-center sm:justify-start'>
       {displayedVideos.map((video) => (
-        <Link to={isSearch ? '/watch?v='+video.id.videoId : '/watch?v='+video.id}
-        key={isSearch ? video.id.videoId : video.id}
-      >
-        <VideoCard info={video} />
-      </Link>
+        <Link 
+          to={isSearch ? '/watch?v=' + video.id.videoId : '/watch?v=' + video.id}
+          key={isSearch ? video.id.videoId : video.id}
+          className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2'
+        >
+          <VideoCard info={video} />
+        </Link>
       ))}
     </div>
   );

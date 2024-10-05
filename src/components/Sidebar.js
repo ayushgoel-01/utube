@@ -8,7 +8,7 @@ const Sidebar = () => {
     if (!isMenuOpen) return null;
 
     return (
-        <div className='top-0 left-0 h-screen w-74 bg-white text-black shadow-lg'>
+        <div className='top-0 left-0 h-auto w-74 bg-white text-black shadow-lg'>
             <ul className='p-4 space-y-2'>
                 <li>
                     <Link to='/' className='flex items-center text-lg font-medium hover:bg-gray-100 p-2 rounded'>
